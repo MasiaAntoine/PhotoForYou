@@ -90,9 +90,13 @@
         /**
 
         Cette méthode permet de se connecter et d'ouvrir une session.
-        Elle vérifie si le email existe en appelant la méthode getExistEmail et si le mot de passe est correct en appelant la méthode comparedHashPassword.
-        Si les deux conditions sont remplies, une session est ouverte avec les variables de session 'isConnected' et 'idUser'.
-        Si la variable de session 'redirectPage' est définie, la méthode redirectUrl est appelée avec cette valeur en paramètre. Sinon, la méthode est appelée avec "/" en paramètre.
+        Elle vérifie si le email existe en appelant la méthode getExistEmail 
+        et si le mot de passe est correct en appelant la méthode comparedHashPassword.
+        Si les deux conditions sont remplies, une session est ouverte avec les variables 
+        de session 'isConnected' et 'idUser'.
+        Si la variable de session 'redirectPage' est définie, la méthode redirectUrl est 
+        appelée avec cette valeur en paramètre. Sinon, la méthode est appelée avec "/" 
+        en paramètre.
         @param User $user Un objet utilisateur qui contient les informations de connexion
         */
         public function login(User $user) {
