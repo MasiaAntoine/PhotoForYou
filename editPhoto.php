@@ -41,6 +41,11 @@
         }
     }
 
+    //récupère les données globals
+    $globals = new Globals([]);
+    $globalsManager = new GlobalsManager($db);
+    $costs = (int) $globalsManager->recupCosts();
+
     // ---- PARTIE VERIFICATION ---- \\
 
     //Vérifier si l'utilisateur est connecté
@@ -132,7 +137,7 @@
                         <input type="text" class="form-control" placeholder="<?= $dataPhoto['titlePhoto'] ?>" disabled>
                         
                         <label for="creditPricePhoto" class="form-label mt-4">Prix (en Credit)</label>
-                        <input type="number" onkeypress="setTimeout('creditEgalEuroForFormAddPhoto(60)', 100);" onkeydown="setTimeout('creditEgalEuroForFormAddPhoto(60)', 100);" onchange="setTimeout('creditEgalEuroForFormAddPhoto(60)', 100);" step="0.01" min="2" max="100" class="form-control" id="creditPricePhoto" name="creditPricePhoto" placeholder="2.34" autocomplete="off" value="<?= $dataPhoto['creditPricePhoto'] ?>" required>
+                        <input type="number" onkeypress="setTimeout('creditEgalEuroForFormAddPhoto(<?= $costs ?>)', 100);" onkeydown="setTimeout('creditEgalEuroForFormAddPhoto(<?= $costs ?>)', 100);" onchange="setTimeout('creditEgalEuroForFormAddPhoto(<?= $costs ?>)', 100);" step="0.01" min="2" max="100" class="form-control" id="creditPricePhoto" name="creditPricePhoto" placeholder="2.34" autocomplete="off" value="<?= $dataPhoto['creditPricePhoto'] ?>" required>
                         <div class="fs-6 fw-lighter" id="creditEgalEuroForFormAddPhoto"></div>
                         <div class="invalid-feedback">Le libellé est obligatoire.</div>
                     </div>
