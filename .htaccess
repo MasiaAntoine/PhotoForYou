@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule ^api/log/([\w-]+)$ apilog.php?token=$1 [L,QSA]
