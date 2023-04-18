@@ -1,6 +1,25 @@
 <?php
-    include_once $_SERVER['DOCUMENT_ROOT'].'/assets/config/functions.inc.php';
-    include_once $_SERVER['DOCUMENT_ROOT'].'/assets/config/tokenAdminAPI.inc.php';
+    // include_once $_SERVER['DOCUMENT_ROOT'].'/photoforyou/assets/config/functions.inc.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/photoforyou/assets/config/tokenAdminAPI.inc.php';
+
+    // Ip/Adresse
+    $servernameDB = "localhost";
+    // identifiant
+    $usernameDB = "root";
+    // Mot de passe
+    $passwordDB = "";
+    // Nom de la base de données
+    $nameDB = "sab_photoforyou";
+
+    //Connexion en base de donnée
+    try {
+        $db = new PDO("mysql:host=$servernameDB:3306;dbname=$nameDB","$usernameDB","$passwordDB");
+        $db->exec('SET NAMES utf8');
+    }
+    catch(PDOException $e) {
+        echo "Erreur : ".$e->getMessage();
+        die();
+    }
 
     function noToken() {
         // Création de l'objet JSON d'erreur
