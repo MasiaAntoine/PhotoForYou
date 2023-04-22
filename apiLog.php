@@ -42,8 +42,15 @@
 
     if(isset($_GET['token'])) {
         if($tokenAdminAPI == $_GET['token']) {
+
             // Requête SQL pour récupérer les informations de la table log
-            $sql = "SELECT date, table_name, type, detail FROM log ORDER BY date DESC";
+            if(isset($_GET['table'])) {
+                $table = $_GET['table'];
+                $sql = "SELECT date, table_name, type, detail FROM log WHERE table_name = '$table' ORDER BY date DESC";
+                if($_GET['table'] == "all") {
+                    $sql = "SELECT date, table_name, type, detail FROM log ORDER BY date DESC";
+                }
+            }
         
             // Exécution de la requête SQL
             $stmt = $db->query($sql);

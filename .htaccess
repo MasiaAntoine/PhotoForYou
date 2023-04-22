@@ -1,2 +1,2 @@
 RewriteEngine On
-RewriteRule ^api/log/([\w-]+)$ apilog.php?token=$1 [L,QSA]
+RewriteRule ^api/log/([^/]+)/([^/]*)$ /photoforyou/apilog.php?table=$1&token=$2 [L]
